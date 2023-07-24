@@ -9,27 +9,26 @@ import { FilterSBItemProps } from './FiltersSB';
 export interface FilterAccordionProps {
     title: string,
     defaultExp?: boolean,
-    content: React.ReactElement<FilterSBItemProps>
+    content: React.ReactElement<FilterSBItemProps>,
+    isExpanded: boolean,
+    handleChange: Function
 }
 
-export const FilterAccordion = ({title, defaultExp, content}: FilterAccordionProps) => {
-
-    // const [selectedIndex, setSelectedIndex] = React.useState(NaN);
-
-    // const handleListItemClick = (
-    //     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    //     index: number,
-    // ) => {
-    //     index !== selectedIndex ? setSelectedIndex(index) : setSelectedIndex(NaN);
-    //     console.log(event); // preventing linter
-    // };
-
+export const FilterAccordion = ({
+    title,
+     defaultExp,
+     content,
+     isExpanded,
+     handleChange
+    }: FilterAccordionProps) => {
     return (
         <Accordion
+            expanded={isExpanded}
             sx={{
                 bgcolor: 'transparent',
             }}
             defaultExpanded={defaultExp}
+            onChange={() => handleChange()}
         >
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}

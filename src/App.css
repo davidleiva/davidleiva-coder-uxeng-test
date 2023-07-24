@@ -99,7 +99,7 @@ body  {
 
 .FilterSideBar .MuiAccordionSummary-content > .MuiTypography-root,
 .FilterSideBar .MuiListItemText-root > .MuiTypography-root {
-  font-size: 0.875rem;
+  font-size: 12px;
 }
 
 .FilterSideBar .MuiAccordion-root.MuiPaper-root:before {
@@ -125,6 +125,38 @@ body  {
   margin-top: 0;
 }
 
-.FilterSideBar .MuiListItemButton-root .MuiListItemIcon-root {
+.FilterSideBar .MuiListItemButton-root.justifyEnd .MuiListItemIcon-root {
   justify-content: end;
+}
+
+.FilterSearchUser input, .FilterSearchUser label,
+.FilterSearchUser .MuiAvatar-circular {
+  font-size: 12px;
+}
+
+.MuiListItemButton-root .MuiListItemIcon-root, .MuiListItemButton-root .MuiAvatar-root {
+  min-width: 0;
+}
+
+.MuiListItemButton-root .MuiAvatar-root {
+  margin-right: 8px;
+}
+
+.FilterBar__Divider.MuiDivider-root {
+  margin: 8px auto;
+}
+
+.QueryEditor textarea,
+.QueryEditor label, 
+.QueryEditor label span { 
+  font-size: 12px;
+}
+
+.QueryEditor .MuiInputLabel-formControl {
+  top: 2px;
+}
+
+.QueryEditor .MuiCheckbox-root svg {
+  width: 0.875rem;
+  height: 0.875rem;
 }

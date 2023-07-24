@@ -1,4 +1,4 @@
-export const Predefined_Filters = [
+export const PREDEFINED_FILTERS = [
     {
         label: 'Created workspaces',
         value: 0,
@@ -21,7 +21,7 @@ export const Predefined_Filters = [
     }
 ];
 
-export const Resource_Filters = [
+export const RESOURCE_FILTERS = [
     {
         label: 'Api Key',
         value: 0,
@@ -58,4 +58,9 @@ export const Resource_Filters = [
         label: 'Workspace Build',
         value: 7,
     }
+];
+
+export const USERS = [
+    { name: 'David Leiva' },
+    { name: 'Bruno Quaresma'}
 ];

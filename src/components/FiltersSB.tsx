@@ -26,6 +26,7 @@ export const FiltersSB = ({isSelected, filters: Filters}: FilterSBItemProps) => 
             Filters.map( (item, index) => {
                 return (
                     <ListItemButton
+                        className="justifyEnd"
                         key={index}
                         selected={false}
                         onClick={() => handleListItemClick()}
