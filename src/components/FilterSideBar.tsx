@@ -1,7 +1,8 @@
 import {FilterAccordion} from './FilterAccordion';
 import Typography from "@mui/material/Typography";
 import FilterListIcon from '@mui/icons-material/FilterList';
-import { FiltersSBPredefined } from './FiltersPredefined';
+import { FiltersSB } from './FiltersSB';
+import { Predefined_Filters } from '../constants';
 
 const FilterSideBar = () => {
     return (
@@ -19,10 +20,10 @@ const FilterSideBar = () => {
                     Filter
                 </Typography>
             </div>
-            <FilterAccordion title={'Predefined filters'} content={FiltersSBPredefined} defaultExp={true}/>
-            <FilterAccordion title={'Resource type'} content={{}} />
-            <FilterAccordion title={'Actions'} content={{}}/>
-            <FilterAccordion title={'Users'} content={{}}/>
+            <FilterAccordion title={'Predefined filters'} content={<FiltersSB filters={Predefined_Filters}/>} defaultExp={true}/>
+            <FilterAccordion title={'Resource type'} content={<FiltersSB filters={Predefined_Filters}/>} />
+            <FilterAccordion title={'Actions'} content={<FiltersSB filters={Predefined_Filters}/>}/>
+            <FilterAccordion title={'Users'} content={<FiltersSB filters={Predefined_Filters}/>}/>
         </div>
       )
 };
