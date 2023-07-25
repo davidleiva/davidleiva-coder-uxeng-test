@@ -1,17 +1,17 @@
 import { createContext } from "react";
 
 export interface FilterState {
-    id: number;
-    title: string;
-    body: string;
+    resource_type: string,
+    action: string,
+    build_reason: string
 }
 export interface FilterStatesContextData {
-    filters: FilterState[];
+    filters: FilterState;
     setFiltersState: (filter:any) => void;
 }
 
 export const filtersContextDefaultValue: FilterStatesContextData = {
-    filters: [],
+    filters: {resource_type: '', action: '', build_reason: ''},
     setFiltersState: () => null,
 }
 

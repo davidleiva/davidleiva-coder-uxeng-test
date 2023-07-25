@@ -11,18 +11,18 @@ export interface FilterAccordionProps {
     filters: any,
     isExpanded: boolean,
     handleChange: Function,
-    filterState?: object
+    filterState?: object,
+    type: string
 }
 
 export const FilterAccordion = ({
     title,
-     defaultExp,
-     filters,
-     isExpanded,
-     handleChange,
+    defaultExp,
+    filters,
+    isExpanded,
+    handleChange,
+    type
     }: FilterAccordionProps) => {
-    
-    console.log('ant. filters es:', filters);
     
     return (
         <Accordion
@@ -41,7 +41,7 @@ export const FilterAccordion = ({
                 <Typography>{title}</Typography>
             </AccordionSummary>
             <AccordionDetails>
-                <FiltersSB filters={Object.values(filters)}/>
+                <FiltersSB filters={filters} type={type}/>
             </AccordionDetails>
         </Accordion>
       )

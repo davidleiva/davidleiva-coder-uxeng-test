@@ -1,43 +1,62 @@
-import { useContext } from 'react'; 
+import { useContext, useEffect, useState} from 'react'; 
 import { FilterStatesContext } from '../ContextManagement';
 import List from '@mui/material/List';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
 import CheckTwoToneIcon from '@mui/icons-material/CheckTwoTone';
+import { checkIfIsSelected } from '../functions';
 
 interface FilterParams {
     label: string,
-    value: object
+    value: object,
+    queryValue: string
 }
 
 export interface FilterSBItemProps {
     isSelected?: boolean,
-    filters: Array <FilterParams>
+    filters: Array <FilterParams>,
+    type: string
 }
 
-export const FiltersSB = ({isSelected}: FilterSBItemProps) => {
+export const FiltersSB = ({filters: _filters, isSelected, type}: FilterSBItemProps) => {
     
     const { filters, setFiltersState } = useContext(FilterStatesContext);
+    const [ stringValue, setStringValue ] = useState('');
 
     const handleListItemClick = (value:any) => {
-        setFiltersState(value);
-        console.log(value);
+        setFiltersState({...value});
     };
-   return (
+
+    const assignStringValue = () => {
+        setStringValue(filters[type])
+    }
+
+    const checkSelected = () => {
+        filters.hasOwnProperty(type)
+        ? assignStringValue()
+        : setStringValue('');
+    }
+
+    useEffect(() => {
+        checkSelected();
+        console.log(filters);
+    }, [filters]);
+
+    return (
 
     <List component="nav" aria-label="main mailbox folders">
         {
-            filters.map( (item:any, index:any) => {
+            _filters.map( (item:any, index:any) => {
                 return (
                     <ListItemButton
                         className="justifyEnd"
                         key={index}
-                        selected={false}
+                        selected={ item.queryValue === stringValue }
                         onClick={() => handleListItemClick(item.value)}
                     >
                         <ListItemText primary={ item.label } />
-                        { isSelected  === false ? 
+                        { item.queryValue === stringValue  ? 
                         <ListItemIcon>
                             <CheckTwoToneIcon />
                         </ListItemIcon>
