@@ -46,7 +46,7 @@ body  {
 /* TODO: move inside component for better performance */
 
 .FilterSideBar {
-  width: 320px;
+  width: 224px;
 }
 
 .FilterSideBar__header.MuiTypography-h6 {
@@ -159,4 +159,8 @@ body  {
 .QueryEditor .MuiCheckbox-root svg {
   width: 0.875rem;
   height: 0.875rem;
+}
+
+.QueryEditor .MuiChip-root {
+ margin: 0 8px 8px 0; 
 }

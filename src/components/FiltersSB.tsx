@@ -1,26 +1,26 @@
 import { useContext, useEffect, useState} from 'react'; 
-import { FilterStatesContext } from '../ContextManagement';
+import { FilterState, FilterStatesContext } from '../ContextManagement';
 import List from '@mui/material/List';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
 import CheckTwoToneIcon from '@mui/icons-material/CheckTwoTone';
-import { checkIfIsSelected } from '../functions';
+import { FILTER_TYPES, PREDEFINED_FILTERS_VALUES, PREDEFINED_FILTERS } from '../constants';
 
 interface FilterParams {
     label: string,
     value: object,
-    queryValue: string
+    queryValue: keyof FilterState
 }
 
 export interface FilterSBItemProps {
     isSelected?: boolean,
     filters: Array <FilterParams>,
-    type: string
+    type: keyof FilterState
 }
 
-export const FiltersSB = ({filters: _filters, isSelected, type}: FilterSBItemProps) => {
-    
+export const FiltersSB = ({filters: _filters, type}: FilterSBItemProps) => {
+    console.log('renders', type, _filters);
     const { filters, setFiltersState } = useContext(FilterStatesContext);
     const [ stringValue, setStringValue ] = useState('');
 
@@ -28,19 +28,26 @@ export const FiltersSB = ({filters: _filters, isSelected, type}: FilterSBItemPro
         setFiltersState({...value});
     };
 
-    const assignStringValue = () => {
-        setStringValue(filters[type])
+    const assignStringValuePreDef = () => {
+        const _index = PREDEFINED_FILTERS_VALUES.findIndex(item => item['resource_type'] === filters['resource_type']);
+        const _string = PREDEFINED_FILTERS[_index] && PREDEFINED_FILTERS[_index]['queryValue'] ?  PREDEFINED_FILTERS[_index]['queryValue'] : null;
+        if(_string) {setStringValue(_string); console.log('1o,', _string)};
     }
 
     const checkSelected = () => {
-        filters.hasOwnProperty(type)
-        ? assignStringValue()
-        : setStringValue('');
+        console.log('check', type);
+        if(type === FILTER_TYPES[0] && filters.hasOwnProperty(FILTER_TYPES[1]) && filters.hasOwnProperty(FILTER_TYPES[2])) {
+            assignStringValuePreDef();
+        } else if (filters.hasOwnProperty(type)) {
+            setStringValue(filters[type])
+        } else {
+            console.log('no');
+            setStringValue('');
+        } 
     }
 
     useEffect(() => {
         checkSelected();
-        console.log(filters);
     }, [filters]);
 
     return (
@@ -53,7 +60,7 @@ export const FiltersSB = ({filters: _filters, isSelected, type}: FilterSBItemPro
                         className="justifyEnd"
                         key={index}
                         selected={ item.queryValue === stringValue }
-                        onClick={() => handleListItemClick(item.value)}
+                        onClick={(e) => {e.preventDefault, handleListItemClick(item.value)}}
                     >
                         <ListItemText primary={ item.label } />
                         { item.queryValue === stringValue  ? 

@@ -12,7 +12,7 @@ export interface FilterAccordionProps {
     isExpanded: boolean,
     handleChange: Function,
     filterState?: object,
-    type: string
+    type: any
 }
 
 export const FilterAccordion = ({

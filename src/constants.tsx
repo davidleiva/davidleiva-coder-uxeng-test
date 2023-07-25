@@ -3,7 +3,7 @@ export const FILTER_TYPES = [
 ];
 
 export const RESOURCES = [
-    'api_key', 'convert_login', 'git_ssh-key', 'convert_login', 'group', 'license', 'template', 'template_version', 'user', 'workspace', 'workspace_build'
+    'api_key', 'convert_login', 'git_ssh-key', 'group', 'template', 'template_version', 'user', 'workspace', 'workspace_build'
 ];
 
 export const ACTIONS = [
@@ -18,29 +18,44 @@ export const USERS = [
 export const PREDEFINED_FILTERS = [
     {
         label: 'Created workspaces',
-        value: { resource_type: RESOURCES[9], action: ACTIONS[0] },
+        queryValue: 'created_workspaces',
+        value: { resource_type: RESOURCES[7], action: ACTIONS[0] },
     },
     {
         label: 'Added templates',
-        value: { resource_type: RESOURCES[6], action: ACTIONS[0] },
+        queryValue: 'added_templates',
+        value: { resource_type: RESOURCES[5], action: ACTIONS[0] },
     },
     {
         label: 'Deleted users',
-        value: { resource_type: RESOURCES[8], action: ACTIONS[1] },
+        queryValue: 'deleted_users',
+        value: { resource_type: RESOURCES[6], action: ACTIONS[1] },
     },
     {
         label: 'Builds started by a user',
-        value: { resource_type: RESOURCES[10], action: ACTIONS[5], build_reason: 'initiator' },
+        queryValue: 'builds_started',
+        value: { resource_type: RESOURCES[8], action: ACTIONS[5], build_reason: 'initiator' },
     },
     {
         label: 'User logins',
+        queryValue: 'user_logins',
         value: { resource_type: RESOURCES[0], action: ACTIONS[2] },
     }
 ];
 
+export const PREDEFINED_FILTERS_VALUES = [
+    { resource_type: RESOURCES[7], action: ACTIONS[0] },
+    { resource_type: RESOURCES[5], action: ACTIONS[0] },
+    { resource_type: RESOURCES[6], action: ACTIONS[1] },
+    { resource_type: RESOURCES[8], action: ACTIONS[5], build_reason: 'initiator' },
+    { resource_type: RESOURCES[0], action: ACTIONS[2] },
+];
+
+
 export const RESOURCE_FILTERS = [
     {
         label: 'Api Key',
+        queryValue: RESOURCES[0],
         value: { resource_type: RESOURCES[0] },
     },
     {
@@ -50,30 +65,37 @@ export const RESOURCE_FILTERS = [
     },
     {
         label: 'Git SSH Key',
+        queryValue: RESOURCES[2],
         value: { resource_type: RESOURCES[2] },
     },
     {
         label: 'Group',
+        queryValue: RESOURCES[3],
         value: { resource_type: RESOURCES[3] },
     },
     {
         label: 'Template',
+        queryValue: RESOURCES[4],
         value: { resource_type: RESOURCES[4] },
     },
     {
         label: 'Template version',
+        queryValue: RESOURCES[5],
         value: { resource_type: RESOURCES[5] },
     },
     {
         label: 'User',
+        queryValue: RESOURCES[6],
         value: { resource_type: RESOURCES[6] },
     },
     {
         label: 'Workspace',
+        queryValue: RESOURCES[7],
         value: { resource_type: RESOURCES[7] },
     },
     {
         label: 'Workspace Build',
+        queryValue: RESOURCES[8],
         value: { resource_type: RESOURCES[8] },
     }
 ];
@@ -119,40 +141,44 @@ export const RESOURCE_FILTERS = [
 
 export const ACTION_FILTERS = [
     {
-        label: 'Api Key',
+        label: 'Create',
+        queryValue: ACTIONS[0],
         value: { action: ACTIONS[0] },
     },
     {
-        label: 'Login',
+        label: 'Delete',
+        queryValue: ACTIONS[1],
         value: { action: ACTIONS[1] },
     },
     {
-        label: 'Git SSH Key',
+        label: 'Login',
+        queryValue: ACTIONS[2],
         value: { action: ACTIONS[2] },
     },
     {
-        label: 'Group',
+        label: 'Logout',
+        queryValue: ACTIONS[3],
         value: { action: ACTIONS[3] },
     },
     {
-        label: 'Template',
+        label: 'Register',
+        queryValue: ACTIONS[4],
         value: { action: ACTIONS[4] },
     },
     {
-        label: 'Template version',
+        label: 'Start',
+        queryValue: ACTIONS[5],
         value: { action: ACTIONS[5] },
     },
     {
-        label: 'User',
+        label: 'Stop',
+        queryValue: ACTIONS[6],
         value: { action: ACTIONS[6] },
     },
     {
-        label: 'Workspace',
+        label: 'Write',
+        queryValue: ACTIONS[7],
         value: { action: ACTIONS[7] },
     },
-    {
-        label: 'Workspace Build',
-        value: { action: ACTIONS[8] },
-    }
 ];
 

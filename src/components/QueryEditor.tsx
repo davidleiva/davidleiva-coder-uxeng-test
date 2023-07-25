@@ -22,6 +22,7 @@ export const QueryEditor = () => {
                 spacing={1}
                 marginTop={2}
                 marginBottom={2}
+                flexWrap={'wrap'}
             >
                 <Chip
                     color="primary"
