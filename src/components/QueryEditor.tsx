@@ -6,11 +6,24 @@ import { FormControlLabel, Typography } from '@mui/material';
 import FormGroup from '@mui/material/FormGroup';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { FilterState, FilterStatesContext } from '../ContextManagement';
+
 
 export const QueryEditor = () => {
+    const { filters, setFiltersState } = useContext(FilterStatesContext);
     const [isAdvanced, setIsAdvanced] = useState(false);
-    const handleDelete = () => { };
+    
+    const handleDelete = (key:string) => {
+        const _filters = {...filters};
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        const _key:keyof FilterState = key;
+        delete _filters[_key];
+        setFiltersState({..._filters});
+    };
+
+    const values = Object.entries(filters);
 
     return (
         <Box className="QueryEditor">
@@ -20,22 +33,24 @@ export const QueryEditor = () => {
             <Stack
                 direction="row"
                 spacing={1}
-                marginTop={2}
-                marginBottom={2}
+                marginTop={1}
+                marginBottom={0}
                 flexWrap={'wrap'}
             >
-                <Chip
-                    color="primary"
-                    size="small"
-                    label="resource_type:workspace"
-                    onDelete={handleDelete}
-                />
-                <Chip
-                    color="primary"
-                    size="small"
-                    label="action:create"
-                    onDelete={handleDelete}
-                />
+                {
+                    values.map((el,index) => (
+                        el[1] !== '' && (
+                        <Chip
+                            key={index}
+                            color="primary"
+                            size="small"
+                            label={el[0]+':'+el[1]}
+                            onDelete={() => handleDelete(el[0])}
+                        /> 
+                        )
+                    ))
+
+                }
             </Stack>
             
             <FormGroup >

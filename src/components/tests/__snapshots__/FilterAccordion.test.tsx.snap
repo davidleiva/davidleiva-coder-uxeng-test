@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Accordion test > FilterAccordion renders ok 1`] = `
+<FilterAccordion
+  defaultExp={true}
+  filterState={{}}
+  filters={[]}
+  handleChange={[Function]}
+  isExpanded={true}
+  title="title"
+  type=""
+/>
+`;

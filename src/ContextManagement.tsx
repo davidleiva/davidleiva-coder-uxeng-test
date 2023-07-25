@@ -7,9 +7,11 @@ export interface FilterState {
 }
 export interface FilterStatesContextData {
     filters: FilterState;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     setFiltersState: (filter:any) => void;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const filtersContextDefaultValue: FilterStatesContextData = {
     filters: {resource_type: '', action: '', build_reason: ''},
     setFiltersState: () => null,

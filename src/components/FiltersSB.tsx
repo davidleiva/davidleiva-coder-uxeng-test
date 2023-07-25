@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-prototype-builtins */
 import { useContext, useEffect, useState} from 'react'; 
 import { FilterState, FilterStatesContext } from '../ContextManagement';
 import List from '@mui/material/List';
@@ -20,7 +22,6 @@ export interface FilterSBItemProps {
 }
 
 export const FiltersSB = ({filters: _filters, type}: FilterSBItemProps) => {
-    console.log('renders', type, _filters);
     const { filters, setFiltersState } = useContext(FilterStatesContext);
     const [ stringValue, setStringValue ] = useState('');
 
@@ -31,24 +32,22 @@ export const FiltersSB = ({filters: _filters, type}: FilterSBItemProps) => {
     const assignStringValuePreDef = () => {
         const _index = PREDEFINED_FILTERS_VALUES.findIndex(item => item['resource_type'] === filters['resource_type']);
         const _string = PREDEFINED_FILTERS[_index] && PREDEFINED_FILTERS[_index]['queryValue'] ?  PREDEFINED_FILTERS[_index]['queryValue'] : null;
-        if(_string) {setStringValue(_string); console.log('1o,', _string)};
+        if(_string) {setStringValue(_string); console.log('1o,', _string)}
     }
 
     const checkSelected = () => {
-        console.log('check', type);
         if(type === FILTER_TYPES[0] && filters.hasOwnProperty(FILTER_TYPES[1]) && filters.hasOwnProperty(FILTER_TYPES[2])) {
             assignStringValuePreDef();
         } else if (filters.hasOwnProperty(type)) {
             setStringValue(filters[type])
         } else {
-            console.log('no');
             setStringValue('');
         } 
     }
 
     useEffect(() => {
         checkSelected();
-    }, [filters]);
+    });
 
     return (
 

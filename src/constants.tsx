@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 export const FILTER_TYPES = [
     'predefined','resource_type', 'action','usernames','build_reason',
 ];

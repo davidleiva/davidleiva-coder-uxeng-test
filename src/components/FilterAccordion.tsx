@@ -8,10 +8,13 @@ import { FiltersSB } from './FiltersSB';
 export interface FilterAccordionProps {
     title: string,
     defaultExp?: boolean,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     filters: any,
     isExpanded: boolean,
+    // eslint-disable-next-line @typescript-eslint/ban-types
     handleChange: Function,
     filterState?: object,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     type: any
 }
 

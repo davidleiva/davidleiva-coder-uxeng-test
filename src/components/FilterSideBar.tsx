@@ -6,9 +6,11 @@ import { QueryEditor } from './QueryEditor';
 import { FILTER_TYPES, PREDEFINED_FILTERS, RESOURCE_FILTERS, ACTION_FILTERS} from '../constants';
 import Divider from "@mui/material/Divider";
 import { FilterStatesContext } from '../ContextManagement';
+import './FilterbarSidebar.css';
 
 const FilterSideBar = () => {
     
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const setFiltersState = (filters:any) => {
         setState({...filterState, filters: filters})
     }
