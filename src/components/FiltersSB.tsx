@@ -1,3 +1,5 @@
+import { useContext } from 'react'; 
+import { FilterStatesContext } from '../ContextManagement';
 import List from '@mui/material/List';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -6,7 +8,7 @@ import CheckTwoToneIcon from '@mui/icons-material/CheckTwoTone';
 
 interface FilterParams {
     label: string,
-    value: number
+    value: object
 }
 
 export interface FilterSBItemProps {
@@ -14,22 +16,25 @@ export interface FilterSBItemProps {
     filters: Array <FilterParams>
 }
 
-export const FiltersSB = ({isSelected, filters: Filters}: FilterSBItemProps) => {
+export const FiltersSB = ({isSelected}: FilterSBItemProps) => {
+    
+    const { filters, setFiltersState } = useContext(FilterStatesContext);
 
-    const handleListItemClick = () => {
-        return
+    const handleListItemClick = (value:any) => {
+        setFiltersState(value);
+        console.log(value);
     };
-
    return (
+
     <List component="nav" aria-label="main mailbox folders">
         {
-            Filters.map( (item, index) => {
+            filters.map( (item:any, index:any) => {
                 return (
                     <ListItemButton
                         className="justifyEnd"
                         key={index}
                         selected={false}
-                        onClick={() => handleListItemClick()}
+                        onClick={() => handleListItemClick(item.value)}
                     >
                         <ListItemText primary={ item.label } />
                         { isSelected  === false ? 

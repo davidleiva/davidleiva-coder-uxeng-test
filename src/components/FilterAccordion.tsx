@@ -1,26 +1,29 @@
-import * as React from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { FilterSBItemProps } from './FiltersSB';
+import { FiltersSB } from './FiltersSB';
 
 export interface FilterAccordionProps {
     title: string,
     defaultExp?: boolean,
-    content: React.ReactElement<FilterSBItemProps>,
+    filters: any,
     isExpanded: boolean,
-    handleChange: Function
+    handleChange: Function,
+    filterState?: object
 }
 
 export const FilterAccordion = ({
     title,
      defaultExp,
-     content,
+     filters,
      isExpanded,
-     handleChange
+     handleChange,
     }: FilterAccordionProps) => {
+    
+    console.log('ant. filters es:', filters);
+    
     return (
         <Accordion
             expanded={isExpanded}
@@ -38,7 +41,7 @@ export const FilterAccordion = ({
                 <Typography>{title}</Typography>
             </AccordionSummary>
             <AccordionDetails>
-                { content }
+                <FiltersSB filters={Object.values(filters)}/>
             </AccordionDetails>
         </Accordion>
       )

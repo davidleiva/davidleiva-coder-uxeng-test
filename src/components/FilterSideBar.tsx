@@ -2,19 +2,35 @@ import { useState } from 'react';
 import {FilterAccordion} from './FilterAccordion';
 import Typography from "@mui/material/Typography";
 import FilterListIcon from '@mui/icons-material/FilterList';
-import { FiltersSB } from './FiltersSB';
-import { FilterSBUsers } from './FilterSBUsers';
 import { QueryEditor } from './QueryEditor';
 import { PREDEFINED_FILTERS } from '../constants';
-import Divider from "@mui/material/Divider"
+import Divider from "@mui/material/Divider";
+import { FilterStatesContext } from '../ContextManagement';
 
 const FilterSideBar = () => {
+    
+    const setFiltersState = (filters:any) => {
+        setState({...filterState, filters: filters})
+    }
+
+    const initState = {
+        filters: [],
+        setFiltersState: setFiltersState
+    } 
+    
+    const [filterState, setState] = useState({...initState})
+
     const [activeAccordion, setActiveAccordion] = useState(0);
-    const handleActiveAccordion = (value:number) => {
-        value !== activeAccordion ? setActiveAccordion(value) : setActiveAccordion(NaN) 
-        debugger;
+
+    const handleActiveAccordion = (value:number, params:object) => {
+        value !== activeAccordion ? setActiveAccordion(value) : setActiveAccordion(NaN),
+        setFiltersState({...params});
     };
+
+
+
     return (
+        <FilterStatesContext.Provider value={initState}>
         <div className="FilterSideBar">
             <div
                 className="FilterSideBar__icon"
@@ -31,32 +47,34 @@ const FilterSideBar = () => {
             </div>
             <FilterAccordion
                 title={'Predefined filters'} 
-                content={<FiltersSB filters={PREDEFINED_FILTERS}/>}
+                filters={PREDEFINED_FILTERS}
                 defaultExp={true}
                 isExpanded={activeAccordion === 0}
-                handleChange={() => handleActiveAccordion(0)}
+                handleChange={(params:object) => handleActiveAccordion(0,params)}
+                filterState={filterState}
             />
             <FilterAccordion
                 title={'Resource type'} 
-                content={<FiltersSB filters={PREDEFINED_FILTERS}/>} 
+                filters={PREDEFINED_FILTERS}
                 isExpanded={activeAccordion === 1}
-                handleChange={() => handleActiveAccordion(1)}
+                handleChange={(params:object) => handleActiveAccordion(1,params)}
             />
             <FilterAccordion
                 title={'Actions'} 
-                content={<FiltersSB filters={PREDEFINED_FILTERS}/>}
+                filters={PREDEFINED_FILTERS}
                 isExpanded={activeAccordion === 2}
-                handleChange={() => handleActiveAccordion(2)}
+                handleChange={(params:object) => handleActiveAccordion(2,params)}
             />
-            <FilterAccordion
+            {/* <FilterAccordion
                 title={'Users'} 
-                content={<FilterSBUsers />}
+                filters={<FilterSBUsers />}
                 isExpanded={activeAccordion === 3}
-                handleChange={() => handleActiveAccordion(3)}
-            />
+                handleChange={(params:object) => handleActiveAccordion(3,params)}
+            /> */}
             <Divider className="FilterBar__Divider"/>
             <QueryEditor />
         </div>
+        </FilterStatesContext.Provider>
       )
 };
 
