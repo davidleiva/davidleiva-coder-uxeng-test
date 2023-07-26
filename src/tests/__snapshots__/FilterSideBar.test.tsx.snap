@@ -1,3 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Accordion test without props > FilterSideBar renders ok 1`] = `<FilterSideBar />`;
+
+exports[`Context works ok > FilterSideBar renders ok 1`] = `<FilterSideBar />`;

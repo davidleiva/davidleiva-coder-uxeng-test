@@ -40,16 +40,17 @@ function App() {
   const [filterState, setState] = useState({ ...initState })
   return (
     <ThemeProvider theme={theme}>
-      <FilterStatesContext.Provider value={filterState}>
         <div
           className="MainContainer"
           style={{
             minHeight: 'calc(100vh - 4rem)'
           }}
         >
-          <FilterSideBar />
+          <FilterStatesContext.Provider value={filterState}>
+            <FilterSideBar />
+          </FilterStatesContext.Provider>
         </div>
-      </FilterStatesContext.Provider>
+      
     </ThemeProvider>
   )
 }
