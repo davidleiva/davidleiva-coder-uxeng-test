@@ -1,60 +1,75 @@
 // import Autocomplete from '@mui/material/Autocomplete';
 import * as React from 'react';
-
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
 import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
-import SearchIcon from '@mui/icons-material/Search';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Avatar from '@mui/material/Avatar';
-import { USERS } from '../constants';
+// import InputAdornment from '@mui/material/InputAdornment';
+// import SearchIcon from '@mui/icons-material/Search';
+// import List from '@mui/material/List';
+// import ListItemButton from '@mui/material/ListItemButton';
+// import ListItemIcon from '@mui/material/ListItemIcon';
+// import ListItemText from '@mui/material/ListItemText';
+// import Avatar from '@mui/material/Avatar';
+import { USERS } from '../utils/constants';
+import { FilterAccordionProps } from './FilterAccordion';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Typography from '@mui/material/Typography';
+import Autocomplete from '@mui/material/Autocomplete';
+import './FilterSBUsers.css';
 
-export const FilterSBUsers = () => {
+export const FilterSBUsers = ({
+    title,
+    defaultExp,
+    isExpanded,
+    handleChange,
+    }: FilterAccordionProps) => {
+    
     const [selectedIndex, setSelectedIndex] = React.useState(1);
 
     const handleListItemClick = (
-        event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+        _event: React.MouseEvent<HTMLDivElement, MouseEvent>,
         index: number,
     ) => {
         setSelectedIndex(index);
-        console.log(event); // linter prevent
     };
     return (
-        <div 
-            className="FilterSearchUser"
-            style={{ padding: '8px 0'}}
+        <Accordion
+            className={'FilterUsers'}
+            expanded={isExpanded}
+            sx={{
+                bgcolor: 'transparent',
+            }}
+            defaultExpanded={defaultExp}
+            onChange={() => handleChange()}
         >
-            <TextField
-                fullWidth
-                InputProps={{
-                    startAdornment: (
-                        <InputAdornment position="start">
-                            <SearchIcon />
-                        </InputAdornment>
-                    ),
-                }}
-                label="Search user"
-                size='small'
-            />
-            <List component="nav" aria-label="main mailbox folders">
-                {USERS.map((user) => (
-                    <ListItemButton
-                        selected={selectedIndex === 0}
+            <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+            >
+                <Typography>{title}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+            <div 
+                className="FilterSearchUser"
+                style={{ padding: '8px 0'}}
+            >
+                    <Autocomplete
+                        className="FilterUsers__AutoComplete"
+                        size="small"
+                        disablePortal
+                        id="users-autocomplete"
+                        options={USERS}
+                        sx={{ width: 300 }}
+                        renderInput={(params) => <TextField {...params} label="Users"
                         onClick={(event) => handleListItemClick(event, 0)}
-                    >
-                        <ListItemIcon>
-                        <Avatar
-                            sx={{ width: 20, height: 20 }}
-                        >H</Avatar>
-                        </ListItemIcon>
-                        <ListItemText primary={user.name} />
-                    </ListItemButton>
-                )
-                )}
-            </List>
-        </div>
+                        fullWidth={true}
+                    />}
+                />
+            </div>
+            </AccordionDetails>
+        </Accordion>
     )
 };
 

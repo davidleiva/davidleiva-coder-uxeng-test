@@ -1,0 +1,110 @@
+.FilterSideBar {
+  width: 224px;
+  padding: 16px;
+  background-color: rgb(4, 6, 11);
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.FilterSideBar__header.MuiTypography-h6 {
+  color: hsl(218, 32%, 77%);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  margin-left: 8px;
+}
+
+.FilterSideBar .FilterSideBar__icon svg.MuiSvgIcon-root path {
+  fill: hsl(218, 32%, 77%);
+}
+
+.FilterSideBar .MuiAccordion-root.MuiPaper-root {
+  background-color: rgb(4, 6, 11);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: none;
+  background-image: none;
+  color: hsl(218, 32%, 77%);
+}
+
+.FilterSideBar .MuiAccordion-root.MuiPaper-root svg path {
+  fill: hsl(218, 32%, 77%);
+}
+
+.FilterSideBar .MuiAccordion-root.MuiPaper-root:hover,
+.FilterSideBar .MuiAccordion-root.MuiPaper-root.Mui-expanded {
+  color: hsl(220, 55%, 98%);
+}
+
+.FilterSideBar .MuiAccordion-root.MuiPaper-root:hover svg path {
+  color: hsl(220, 55%, 98%);
+}
+
+.FilterSideBar .MuiAccordionDetails-root {
+  padding: 0;
+}
+
+.FilterSideBar .MuiAccordion-root.MuiPaper-root .MuiAccordionSummary-root {
+  padding-left: 0;
+  padding-right: 0;
+  height: 36px;
+}
+
+.FilterSideBar .MuiAccordionSummary-content>.MuiTypography-root,
+.FilterSideBar .MuiListItemText-root>.MuiTypography-root {
+  font-size: 12px;
+}
+
+.FilterSideBar .MuiAccordion-root.MuiPaper-root:before {
+  content: none;
+}
+
+.FilterSideBar .MuiAccordion-root.MuiPaper-root .MuiSvgIcon-root {
+  width: 0.66em;
+  height: 0.66em;
+}
+
+.FilterSideBar .MuiAccordionSummary-content.Mui-expanded {
+  margin: 4px 0;
+}
+
+.FilterSideBar .MuiAccordion-root .MuiButtonBase-root {
+  min-height: initial;
+  height: 36px;
+}
+
+.FilterSideBar .MuiAccordion-root.MuiPaper-root.Mui-expanded {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.FilterSideBar .MuiListItemButton-root.justifyEnd .MuiListItemIcon-root {
+  justify-content: end;
+}
+
+.FilterBar__Divider.MuiDivider-root {
+  margin: 8px auto;
+}
+
+.FilterSearchUser input,
+.FilterSearchUser label,
+.FilterSearchUser .MuiAvatar-circular {
+  font-size: 12px;
+}
+
+.MuiListItemButton-root .MuiListItemIcon-root,
+.MuiListItemButton-root .MuiAvatar-root {
+  min-width: 0;
+}
+
+.MuiListItemButton-root .MuiAvatar-root {
+  margin-right: 8px;
+}
+
+/* TODO: This is only a Fix for storybook */
+.QueryEditor .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root {
+  color: rgba(255, 255, 255, 0.7);
+}

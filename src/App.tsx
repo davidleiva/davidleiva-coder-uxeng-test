@@ -12,7 +12,7 @@ const theme = createTheme({
       white: '#cccccc'
     },
     primary: {
-      main: 'rgb(84, 148, 237)',
+      main: 'rgb(42 73 145)',
     },
     secondary: {
       light: '#0066ff',

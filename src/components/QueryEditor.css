@@ -1,0 +1,38 @@
+.QueryEditor textarea,
+.QueryEditor label, 
+.QueryEditor label span { 
+  font-size: 12px;
+}
+
+.QueryEditor .MuiInputBase-root {
+  padding: 6px 14px;
+}
+
+.QueryEditor .MuiCheckbox-root svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.QueryEditor .MuiChip-root.MuiChip-filled {
+ margin: 0 8px 8px 0;
+ color: rgb(247, 249, 253);
+}
+
+.QueryEditor .MuiChip-root.MuiChip-filled path {
+  fill: rgb(247, 249, 253);
+}
+
+.QueryEditor .FilterSideBar__header.MuiTypography-h6 {
+  margin-left: 0;
+  font-size: 10px;
+}
+
+.QueryEditor .MuiButton-outlined {
+  border: 1px solid rgb(42 73 145);
+}
+
+.QueryEditor .MuiButton-outlined:hover {
+  text-decoration: none;
+  background-color: rgba(144, 202, 249, 0.08);
+  border: 1px solid rgb(144, 202, 249);
+}

@@ -4,18 +4,33 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { FiltersSB } from './FiltersSB';
+import './FilterAccordion.css';
 
 export interface FilterAccordionProps {
+    /**
+     * Main label of the Accordion
+     */
     title: string,
+    /**
+     * Is the accordion expanded by default?
+     */
     defaultExp?: boolean,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    filters: any,
+    filters?: any,
+    /**
+     * Is the accordion currently expanded?
+     */
     isExpanded: boolean,
+    /**
+     * Handles which accordion is opened
+     */    
     // eslint-disable-next-line @typescript-eslint/ban-types
     handleChange: Function,
-    filterState?: object,
+    /**
+     * The category type of the filter, so we can control the selected states
+     */  
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    type: any
+    type?: any
 }
 
 export const FilterAccordion = ({

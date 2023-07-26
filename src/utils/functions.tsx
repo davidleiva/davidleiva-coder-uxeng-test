@@ -1,7 +1,7 @@
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable @typescript-eslint/ban-types */
-import { FILTER_TYPES } from "./constants";
-import { FilterSBItemProps } from './components/FiltersSB.tsx';
+import { FILTER_TYPES } from "./constants.tsx";
+import { FilterSBItemProps } from '../components/FiltersSB.tsx';
 
 /**
  * 

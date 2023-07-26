@@ -1,5 +1,5 @@
 import {describe, expect, test} from 'vitest';
-import FiltersSB from '../FiltersSB';
+import FiltersSB from '../components/FiltersSB';
 
 describe("Accordion test", () => {
     test("FiltersSB renders ok", () => {

@@ -43,38 +43,8 @@ body  {
   color: #888;
 }
 
-/* TODO: move inside component for better performance */
-
-
-
-.FilterSearchUser input, .FilterSearchUser label,
-.FilterSearchUser .MuiAvatar-circular {
-  font-size: 12px;
-}
-
-.MuiListItemButton-root .MuiListItemIcon-root, .MuiListItemButton-root .MuiAvatar-root {
-  min-width: 0;
-}
-
-.MuiListItemButton-root .MuiAvatar-root {
-  margin-right: 8px;
-}
-
-.QueryEditor textarea,
-.QueryEditor label, 
-.QueryEditor label span { 
-  font-size: 12px;
-}
-
-.QueryEditor .MuiInputLabel-formControl {
-  top: 2px;
-}
-
-.QueryEditor .MuiCheckbox-root svg {
-  width: 0.875rem;
-  height: 0.875rem;
-}
-
-.QueryEditor .MuiChip-root {
- margin: 0 8px 8px 0; 
+.MuiButtonBase-root.MuiButton-root, .MuiButtonBase-root.MuiButton-root  {
+  text-transform: capitalize;
+  font-weight: 600;
+  color: rgb(247, 249, 253);
 }

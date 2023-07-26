@@ -1,5 +1,5 @@
 import {describe, expect, test} from 'vitest';
-import FilterAccordion from '../FilterAccordion';
+import FilterAccordion from '../components/FilterAccordion';
 
 describe("Accordion test", () => {
     test("FilterAccordion renders ok", () => {

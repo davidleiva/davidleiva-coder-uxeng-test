@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-prototype-builtins */
 import { useContext, useEffect, useState} from 'react'; 
-import { FilterState, FilterStatesContext } from '../ContextManagement';
+import { FilterState, FilterStatesContext } from '../utils/ContextManagement';
 import List from '@mui/material/List';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
 import CheckTwoToneIcon from '@mui/icons-material/CheckTwoTone';
-import { FILTER_TYPES, PREDEFINED_FILTERS_VALUES, PREDEFINED_FILTERS } from '../constants';
+import { FILTER_TYPES, PREDEFINED_FILTERS_VALUES, PREDEFINED_FILTERS } from '../utils/constants';
 
 interface FilterParams {
     label: string,
@@ -32,7 +32,7 @@ export const FiltersSB = ({filters: _filters, type}: FilterSBItemProps) => {
     const assignStringValuePreDef = () => {
         const _index = PREDEFINED_FILTERS_VALUES.findIndex(item => item['resource_type'] === filters['resource_type']);
         const _string = PREDEFINED_FILTERS[_index] && PREDEFINED_FILTERS[_index]['queryValue'] ?  PREDEFINED_FILTERS[_index]['queryValue'] : null;
-        if(_string) {setStringValue(_string); console.log('1o,', _string)}
+        if(_string) { setStringValue(_string) }
     }
 
     const checkSelected = () => {

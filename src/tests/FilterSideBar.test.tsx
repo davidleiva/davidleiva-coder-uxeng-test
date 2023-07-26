@@ -1,5 +1,5 @@
 import {describe, expect, test} from 'vitest';
-import FilterSideBar from '../FilterSideBar';
+import FilterSideBar from '../components/FilterSideBar';
 
 describe("Accordion test", () => {
     test("FilterSideBar renders ok", () => {

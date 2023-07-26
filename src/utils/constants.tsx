@@ -12,8 +12,8 @@ export const ACTIONS = [
 ];
 
 export const USERS = [
-    { name: 'David Leiva' },
-    { name: 'Bruno Quaresma'}
+    { label: 'David Leiva' },
+    { label: 'Bruno Quaresma'}
 ];
 
 export const PREDEFINED_FILTERS = [
@@ -51,7 +51,6 @@ export const PREDEFINED_FILTERS_VALUES = [
     { resource_type: RESOURCES[8], action: ACTIONS[5], build_reason: 'initiator' },
     { resource_type: RESOURCES[0], action: ACTIONS[2] },
 ];
-
 
 export const RESOURCE_FILTERS = [
     {
@@ -100,45 +99,6 @@ export const RESOURCE_FILTERS = [
         value: { resource_type: RESOURCES[8] },
     }
 ];
-
-// export const RESOURCE_FILTERS = [
-//     {
-//         label: 'Api Key',
-//         value: { action: ACTIONS[0] },
-//     },
-//     {
-//         label: 'Login',
-//         value: { action: ACTIONS[1] },
-//     },
-//     {
-//         label: 'Git SSH Key',
-//         value: { action: ACTIONS[2] },
-//     },
-//     {
-//         label: 'Group',
-//         value: { action: ACTIONS[3] },
-//     },
-//     {
-//         label: 'Template',
-//         value: { action: ACTIONS[4] },
-//     },
-//     {
-//         label: 'Template version',
-//         value: { action: ACTIONS[5] },
-//     },
-//     {
-//         label: 'User',
-//         value: { action: ACTIONS[6] },
-//     },
-//     {
-//         label: 'Workspace',
-//         value: { action: ACTIONS[7] },
-//     },
-//     {
-//         label: 'Workspace Build',
-//         value: { action: ACTIONS[8] },
-//     }
-// ];
 
 export const ACTION_FILTERS = [
     {

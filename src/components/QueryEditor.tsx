@@ -7,8 +7,8 @@ import FormGroup from '@mui/material/FormGroup';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import { useState, useContext } from 'react';
-import { FilterState, FilterStatesContext } from '../ContextManagement';
-
+import { FilterState, FilterStatesContext } from '../utils/ContextManagement';
+import './QueryEditor.css';
 
 export const QueryEditor = () => {
     const { filters, setFiltersState } = useContext(FilterStatesContext);
@@ -80,8 +80,8 @@ export const QueryEditor = () => {
                     />
                 </Stack>
                 <Stack direction="row" spacing={1} justifyContent={'flex-end'}>
-                    <Button variant="contained" size="small">Save</Button>
                     <Button variant="outlined" size="small">Cancel</Button>
+                    <Button variant="contained" size="small">Save</Button>
                 </Stack>
                 </>
             }

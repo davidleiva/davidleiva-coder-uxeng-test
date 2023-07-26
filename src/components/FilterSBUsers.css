@@ -1,0 +1,17 @@
+.FilterUsers .FilterUsers__AutoComplete {
+    max-width: 224px;
+}
+
+.FilterUsers .FilterUsers__AutoComplete textarea {
+    padding: 6px 14px;
+}
+
+.FilterUsers .MuiAutocomplete-popper * {
+    font-size: 12px;
+}
+
+.FilterUsers .FilterSearchUser .MuiButtonBase-root {
+    min-height: initial;
+    height: calc(100% - 32px);
+    top: 1px;
+}
