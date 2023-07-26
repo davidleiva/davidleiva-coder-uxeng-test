@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // import Autocomplete from '@mui/material/Autocomplete';
 import * as React from 'react';
 import Accordion from '@mui/material/Accordion';
@@ -17,6 +18,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Typography from '@mui/material/Typography';
 import Autocomplete from '@mui/material/Autocomplete';
 import './FilterSBUsers.css';
+import { useContext } from 'react'; 
+import { FilterStatesContext } from '../utils/ContextManagement';
 
 export const FilterSBUsers = ({
     title,
@@ -25,14 +28,26 @@ export const FilterSBUsers = ({
     handleChange,
     }: FilterAccordionProps) => {
     
-    const [selectedIndex, setSelectedIndex] = React.useState(1);
+    const { filters, setFiltersState } = useContext(FilterStatesContext);
 
     const handleListItemClick = (
-        _event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-        index: number,
+        e: React.SyntheticEvent,
+        value: any
     ) => {
-        setSelectedIndex(index);
+        const name = value && value.label ? value.label.toLowerCase() : undefined;
+        if(name !== undefined) { 
+            const _value = { username: name };
+            setFiltersState({..._value})
+        } else {
+            const _filters = {...filters};
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignoreconst key = 'username':keyof
+            delete _filters['username'];
+            setFiltersState({..._filters})
+        }
+        console.log(e);
     };
+
     return (
         <Accordion
             className={'FilterUsers'}
@@ -55,17 +70,16 @@ export const FilterSBUsers = ({
                 className="FilterSearchUser"
                 style={{ padding: '8px 0'}}
             >
-                    <Autocomplete
-                        className="FilterUsers__AutoComplete"
-                        size="small"
-                        disablePortal
-                        id="users-autocomplete"
-                        options={USERS}
-                        sx={{ width: 300 }}
-                        renderInput={(params) => <TextField {...params} label="Users"
-                        onClick={(event) => handleListItemClick(event, 0)}
-                        fullWidth={true}
-                    />}
+                <Autocomplete<{ label: string }>
+                    className="FilterUsers__AutoComplete"
+                    size="small"
+                    disablePortal
+                    id="users-autocomplete"
+                    options={USERS}
+                    sx={{ width: 300 }}
+                    renderInput={(params) => <TextField {...params} label={"Users"} />}
+                    onChange={ (e,value) => handleListItemClick(e,value) }
+                    fullWidth={true}
                 />
             </div>
             </AccordionDetails>
