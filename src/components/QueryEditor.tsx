@@ -27,7 +27,7 @@ export const QueryEditor = () => {
 
     return (
         <Box className="QueryEditor">
-            <Typography variant="h6" gutterBottom className="FilterSideBar__header">
+            <Typography variant="h6" gutterBottom className="FilterSideBar__Title">
                 Filter Query Editor
             </Typography>
             <Stack
@@ -63,7 +63,7 @@ export const QueryEditor = () => {
             </FormGroup>
             { isAdvanced && 
                 <>
-                <Typography variant="h6" gutterBottom className="FilterSideBar__header" marginTop={1}>
+                <Typography variant="h6" gutterBottom className="FilterSideBar__Title" marginTop={1}>
                     Add more filters
                 </Typography>
 

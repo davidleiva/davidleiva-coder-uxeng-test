@@ -1,18 +1,17 @@
 import {describe, expect, test} from 'vitest';
 import FilterAccordion from '../components/FilterAccordion';
+import { PREDEFINED_FILTERS } from '../utils/constants';
 
-describe("Accordion test", () => {
+describe("Accordion basic test", () => {
     test("FilterAccordion renders ok", () => {
         
         const fc = 
             <FilterAccordion 
                 title={'title'}
                 defaultExp={true}
-                filters={[]}
+                filters={PREDEFINED_FILTERS}
                 isExpanded={true}
                 handleChange={() => {}}
-                filterState={{}}
-                type={''}
             />
         ;
 

@@ -1,13 +1,55 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Accordion test > FilterAccordion renders ok 1`] = `
+exports[`Accordion basic test > FilterAccordion renders ok 1`] = `
 <FilterAccordion
   defaultExp={true}
-  filterState={{}}
-  filters={[]}
+  filters={
+    [
+      {
+        "label": "Created workspaces",
+        "queryValue": "created_workspaces",
+        "value": {
+          "action": "create",
+          "resource_type": "workspace",
+        },
+      },
+      {
+        "label": "Added templates",
+        "queryValue": "added_templates",
+        "value": {
+          "action": "create",
+          "resource_type": "template_version",
+        },
+      },
+      {
+        "label": "Deleted users",
+        "queryValue": "deleted_users",
+        "value": {
+          "action": "delete",
+          "resource_type": "user",
+        },
+      },
+      {
+        "label": "Builds started by a user",
+        "queryValue": "builds_started",
+        "value": {
+          "action": "start",
+          "build_reason": "initiator",
+          "resource_type": "workspace_build",
+        },
+      },
+      {
+        "label": "User logins",
+        "queryValue": "user_logins",
+        "value": {
+          "action": "login",
+          "resource_type": "api_key",
+        },
+      },
+    ]
+  }
   handleChange={[Function]}
   isExpanded={true}
   title="title"
-  type=""
 />
 `;

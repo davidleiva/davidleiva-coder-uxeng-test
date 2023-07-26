@@ -22,7 +22,7 @@
   fill: rgb(247, 249, 253);
 }
 
-.QueryEditor .FilterSideBar__header.MuiTypography-h6 {
+.QueryEditor .FilterSideBar__Title.MuiTypography-h6 {
   margin-left: 0;
   font-size: 10px;
 }
