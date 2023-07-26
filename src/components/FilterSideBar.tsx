@@ -8,6 +8,7 @@ import Divider from "@mui/material/Divider";
 import { FilterStatesContext } from '../utils/ContextManagement';
 import './FilterSideBar.css';
 import FilterSBUsers from './FilterSBUsers';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 const FilterSideBar = () => {
 
@@ -74,6 +75,8 @@ const FilterSideBar = () => {
                 />
                 <Divider className="FilterBar__Divider" />
                 <QueryEditor />
+                <Divider className="FilterBar__Divider" />
+                <a href="#" target="_blank" className={'FilterSideBar__Link'}><HelpOutlineIcon /> <span>Filters documentation</span></a>
             </div>
         </FilterStatesContext.Provider>
     )

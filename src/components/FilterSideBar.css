@@ -104,6 +104,26 @@
   margin-right: 8px;
 }
 
+.FilterSideBar .FilterSideBar__Link {
+  color: rgba(255, 255, 255, 0.87);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+
+}
+
+.FilterSideBar .FilterSideBar__Link:hover {
+  color: rgba(255, 255, 255, 1);
+  font-size: 12px;
+}
+
+.FilterSideBar .FilterSideBar__Link svg {
+  width: 0.5em;
+  height: 0.5em;
+  margin-right: 8px;
+}
+
+
 /* TODO: This is only a Fix for storybook */
 .QueryEditor .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root {
   color: rgba(255, 255, 255, 0.7);
